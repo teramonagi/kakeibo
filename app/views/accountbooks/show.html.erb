@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @accountbook.date %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @accountbook.amount %>
+</p>
+
+<p>
+  <strong>Person:</strong>
+  <%= @accountbook.person %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @accountbook.content %>
+</p>
+
+<%= link_to 'Edit', edit_accountbook_path(@accountbook) %> |
+<%= link_to 'Back', accountbooks_path %>

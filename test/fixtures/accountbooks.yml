@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2014-12-09
+  amount: 1
+  person: MyString
+  content: MyString
+
+two:
+  date: 2014-12-09
+  amount: 1
+  person: MyString
+  content: MyString
