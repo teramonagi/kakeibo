@@ -25,7 +25,11 @@
     <% end %>
   </tbody>
 </table>
+<%= link_to 'New Accountbook', new_accountbook_path %>
+
+<p>今月の支払額</p> :
+<%= @accountbooks.sum(:amount) %> </p>
+<%= @accountbooks.group(:person).sum(:amount) %> </p>
 
 <br>
 
-<%= link_to 'New Accountbook', new_accountbook_path %>
