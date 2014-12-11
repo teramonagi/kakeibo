@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  post "accountbooks/aggregate" => "accountbooks#aggregate"
+
+
   resources :accountbooks
 
   # The priority is based upon order of creation: first created -> highest priority.

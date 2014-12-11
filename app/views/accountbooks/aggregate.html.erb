@@ -31,7 +31,7 @@
 <%= @accountbooks.sum(:amount) %> </p>
 <%= @accountbooks.group(:person).sum(:amount) %> </p>
 
-<%= button_to "今月の集計", {:action => "aggregate", :name => "Taro"}, :method => :post %>
+<%= button_to "今月の集計", :action => "aggregate" %>
 
 <br>
 
