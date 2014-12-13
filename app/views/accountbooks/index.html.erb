@@ -1,21 +1,21 @@
-<h1>Listing accountbooks</h1>
+<h1>家計簿</h1>
 
 <%= form_tag("accountbooks/aggregate", method: "post") do %>
     <%= text_field_tag(:date, Date.today.strftime("%Y-%m")) %>
     <%= submit_tag("集計") %>
 <% end %>
-
+<%= link_to '追加', new_accountbook_path %>
+<hr>
 <table>
   <thead>
     <tr>
-      <th>Date</th>
-      <th>Amount</th>
-      <th>Person</th>
-      <th>Content</th>
+      <th>日付</th>
+      <th>金額</th>
+      <th>支払者</th>
+      <th>内容</th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @accountbooks.each do |accountbook| %>
       <tr>
@@ -23,13 +23,10 @@
         <td><%= accountbook.amount %></td>
         <td><%= accountbook.person %></td>
         <td><%= accountbook.content %></td>
-        <td><%= link_to 'Show', accountbook %></td>
-        <td><%= link_to 'Ed it', edit_accountbook_path(accountbook) %></td>
-        <td><%= link_to 'Destroy', accountbook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '表示', accountbook %></td>
+        <td><%= link_to '編集', edit_accountbook_path(accountbook) %></td>
+        <td><%= link_to '削除', accountbook, method: :delete, data: { confirm: '削除しますか？' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<%= link_to 'New Accountbook', new_accountbook_path %>
-
-<%# = button_to "今月の集計", {:action => "aggregate", :name => "Taro"}, :method => :post %>
