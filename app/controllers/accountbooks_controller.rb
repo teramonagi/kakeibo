@@ -61,8 +61,14 @@ class AccountbooksController < ApplicationController
     end
   end
 
-  def aggregate
-    render :text => "Hello, #{params[:name]} san"
+  def aggregate()
+    this_month = Date.parse(params[:date]+"-1")
+    next_month = this_month.next_month(1)
+    summarized_records = Accountbook.all.where('date <= :tm and date < :nm', {tm:this_month, nm:next_month })
+    res = summarized_records.group(:person).sum(:amount)
+    @this_month = this_month
+    @amount = 100
+    # render :text => "Hello, #{params[:name]} san"
   end
 
   private

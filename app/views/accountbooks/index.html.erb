@@ -1,5 +1,10 @@
 <h1>Listing accountbooks</h1>
 
+<%= form_tag("accountbooks/aggregate", method: "post") do %>
+    <%= text_field_tag(:date, Date.today.strftime("%Y-%m")) %>
+    <%= submit_tag("集計") %>
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -27,11 +32,4 @@
 </table>
 <%= link_to 'New Accountbook', new_accountbook_path %>
 
-<p>今月の支払額</p>
-<%= @accountbooks.sum(:amount) %> </p>
-<%= @accountbooks.group(:person).sum(:amount) %> </p>
-
-<%= button_to "今月の集計", {:action => "aggregate", :name => "Taro"}, :method => :post %>
-
-<br>
-
+<%# = button_to "今月の集計", {:action => "aggregate", :name => "Taro"}, :method => :post %>
