@@ -70,7 +70,7 @@ class AccountbooksController < ApplicationController
     if res.size == 2
       first = res.values[0]
       last = res.values[1]
-      @amount = (0.5*(last-first).abs).round
+      @amount = (0.5*(last-first)).abs.round
     else
       @amount = 0
     end
